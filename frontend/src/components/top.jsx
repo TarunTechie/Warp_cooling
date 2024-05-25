@@ -24,15 +24,15 @@ export default function Top() {
 
     return (
         <header className="flex bg-blue-200 px-2 justify-between h-24 items-center fixed z-10 w-full top-0">
-            {/* <Link to="/">
-                <img src="/fulllogo.svg" alt="" srcSet="" className="w-72" />
-            </Link> */}
+            <Link to="/">
+                <img src="/logo.svg" alt="" srcSet="" className="w-56 p-4" />
+            </Link>
             <div className="flex gap-44 text-2xl font-extrabold text-maron">
                 <ul className="flex gap-44">
                     <Link to="/"><li className="hover:underline underline-offset-4" >Home</li></Link>
                     <Link to="/recipes"><li className="hover:underline underline-offset-4" >Products</li></Link>
                     <Link to="/aboutus"><li className="hover:underline underline-offset-4" >About Us</li></Link>
-                    <Link to="/collections"><li className="hover:underline underline-offset-4 " >Collections</li></Link>
+                    <Link to="/collections"><li className="hover:underline underline-offset-4 " >Orders</li></Link>
                 </ul>
             </div>
             {user ? (

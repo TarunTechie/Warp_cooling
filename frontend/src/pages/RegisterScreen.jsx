@@ -85,8 +85,8 @@ function RegisterScreen() {
       <img src='/logo.svg' className='max-w-sm'/>
       </Link>
       <div className='flex justify-between gap-10'>
-        <Link to="/login"><h1 className='text-xl font-extrabold text-maron'>LOGIN</h1></Link>
-        <h1 className='text-xl font-extrabold text-maron underline underline-offset-8'>REGISTER</h1>
+        <Link to="/login"><h1 className='text-xl font-extrabold text-blue-900'>LOGIN</h1></Link>
+        <h1 className='text-xl font-extrabold text-blue-900 underline underline-offset-8'>REGISTER</h1>
       </div>
         <input
           className="form-field field"

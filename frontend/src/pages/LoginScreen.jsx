@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {useNavigate,Link} from 'react-router-dom'
+import api from '../api';
 function LoginScreen() {
   const [values, setValues] = useState({
     email: "",
@@ -23,18 +24,7 @@ function LoginScreen() {
     e.preventDefault();
     setSubmitted(true);
     try{
-      const reply=ourApi.post('/login',values).then(result=>{
-        if(result.data.reply==true)
-        {
-          sessionStorage.setItem('userid',result.data.id)
-          sessionStorage.setItem('name',result.data.name)
-          nav('/')
-        }
-        else
-        {
-          setErrors("User Credentials Invalid!!!")
-        }
-      })
+      
     }
     catch(error)
     {
