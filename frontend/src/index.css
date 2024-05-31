@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body
+{
+    background-color: rgb(255, 225, 187);
+}
 .field
 {
     @apply bg-transparent border-2 p-4 m-2 border-blue-500 rounded-lg w-96
@@ -10,4 +14,17 @@
 .lrbtn
 {
     @apply h-10 w-5/6 text-xl font-extrabold bg-blue-900 text-white border-2 border-blue-900 hover:bg-white hover:text-blue-900
+}
+
+.products
+{
+    display: flex;
+    place-content: center;
+}
+
+.heading
+{
+    font-family: 'Alfa Slab One', serif;
+    font-weight: bolder;
+    @apply text-5xl underline underline-offset-8 text-center text-blue-900
 }

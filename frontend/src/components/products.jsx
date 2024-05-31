@@ -3,7 +3,6 @@ export default function Products()
 {
     return(
         <div>
-            <h1 className="text-center heading">PRODUCTS</h1>
     <div className="products">
         <Pcard
         image={"assets/Room-AC.jpg"}
