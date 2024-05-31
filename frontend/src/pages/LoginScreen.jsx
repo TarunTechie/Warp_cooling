@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useNavigate,Link} from 'react-router-dom'
-import api from '../api';
+import api from '../components/api'
 function LoginScreen() {
   const [values, setValues] = useState({
     email: "",
@@ -24,7 +24,8 @@ function LoginScreen() {
     e.preventDefault();
     setSubmitted(true);
     try{
-      
+        const result=await api.post('/login',values)
+        console.log(result)
     }
     catch(error)
     {

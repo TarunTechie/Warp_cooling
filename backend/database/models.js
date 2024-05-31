@@ -6,7 +6,7 @@ const order=new mongo.Schema({
     status:Boolean
 })
 const userSchema=new mongo.Schema({
-    name:String,
+    email:String,
     password:String,
     orders:[order]
 })
