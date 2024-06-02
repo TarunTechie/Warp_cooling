@@ -52,7 +52,7 @@ export default function Product_page()
             </div>
             <div className="pt-40" id="wp">
                 <h1 className="text-center heading">WATER PURIFIERS</h1>
-                <Link to="/pimg"><div className="md:flex justify-center sm: grid place-content-center m-auto">
+                <div className="md:flex justify-center sm: grid place-content-center m-auto">
                 <Procard
                 image={"/assets/products/dowp.jpg"}
                 heading={"Domestic water purification"}
@@ -68,11 +68,11 @@ export default function Product_page()
                 heading={"Water Softners"}
                 content={"A water softener removes minerals that create water hardness, one of the most common water quality problems many homeowners encounter. Hard water destroys appliances, leaves filmy soap scum across bathrooms and kitchens, and dries out hair and skin. With over 85% of the United States relying on hard water for their cooking, cleaning, and bathing, water softeners serve a vital purpose. A water softener saves you from replacing prematurely ruined water heaters, scaly faucet heads, and hours and hours of cleaning up soapy residue. Investing in a water softener saves you time, energy, and money, and protects your home and your property"}
                 />
-            </div></Link>     
+            </div>     
             </div>
             <div className="pt-40" id="shp">
                 <h1 className="text-center heading">SOLAR & HEAT PUMPS</h1>
-                <Link to="/pimg"><div className="md:flex justify-center sm: grid place-content-center m-auto">
+                <div className="md:flex justify-center sm: grid place-content-center m-auto">
                 <Procard
                 image={"/assets/products/domsh.jpg"}
                 heading={"Domestic Solar"}
@@ -88,11 +88,11 @@ export default function Product_page()
                 heading={"Heat Pumps"}
                 content={"Heat pumps offer an energy-efficient alternative to furnaces and air conditioners for all climates. Like your refrigerator, heat pumps use electricity to transfer heat from a cool space to a warm space, making the cool space cooler and the warm space warmer"}
                 />
-            </div></Link>     
+            </div>     
             </div>
             <div className="pt-40" id="ups">
                 <h1 className="text-center heading">UPS</h1>
-                <Link to="/pimg"><div className="md:flex justify-center sm: grid place-content-center m-auto">
+                <div className="md:flex justify-center sm: grid place-content-center m-auto">
                 <Procard
                 image={"/assets/products/onups.jpg"}
                 heading={"Online UPS"}
@@ -108,7 +108,7 @@ export default function Product_page()
                 heading={"Solar UPS"}
                 content={"Solar UPS is an electrical device that converts solar energy generated in DC form into usable home energy in AC form, while also storing it in batteries for use at night or during power outages"}
                 />
-            </div></Link>    
+            </div>    
             </div>
         </div>
     )

@@ -25,7 +25,14 @@ function LoginScreen() {
     setSubmitted(true);
     try{
         const result=await api.post('/login',values)
-        console.log(result)
+        console.log(result.data.state)
+        if(result.data.state=='logged in')
+          {
+            nav('/')
+            localStorage.setItem('number',0)
+            sessionStorage.setItem("userid",result.data.id)
+            sessionStorage.setItem("name",result.data.name)
+          }
     }
     catch(error)
     {

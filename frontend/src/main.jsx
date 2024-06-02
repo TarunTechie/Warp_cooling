@@ -6,6 +6,7 @@ import RegisterScreen from './pages/RegisterScreen.jsx'
 import Product_page from './pages/product_page.jsx'
 import './index.css'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import Cart from './pages/cart.jsx'
 
 const router=createBrowserRouter(
   [
@@ -24,6 +25,10 @@ const router=createBrowserRouter(
     {
       path:'/products',
       element:<Product_page/>
+    },
+    {
+      path:'/cart',
+      element:<Cart/>
     }
   ]
 )

@@ -10,7 +10,19 @@ mongo.connect('mongodb://localhost:27017/wrap')
 
 
 app.post('/login',async(req,res)=>{
+    console.log("Login Request Recived")
+    const response=await user.login(req.body)
+    res.json(response)
+})
+
+app.post('/register',async(req,res)=>{
+    console.log("Register Request Recived")
+    const response=await user.register(req.body)
+    res.send(response)
+})
+
+app.post('/checkout',async(req,res)=>{
+    console.log("GOT ORDER")
     console.log(req.body)
-    res.send("got it")
 })
 app.listen(5000,()=>{console.log("Server running")})

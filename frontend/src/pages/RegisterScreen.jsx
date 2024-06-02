@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {useNavigate,Link} from 'react-router-dom'
-
+import api from '../components/api';
 
 function RegisterScreen() {
   const [spa,setsap]=useState(10)
@@ -37,7 +37,7 @@ function RegisterScreen() {
     validateForm();
     setSubmitted(true);
     if(valid){
-      ourApi.post('/register',values)
+      api.post('/register',values)
       .then(result => {
       setRegister(result)
       const login = {email:values.email,password:values.password}
