@@ -7,7 +7,7 @@ import Product_page from './pages/product_page.jsx'
 import './index.css'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Cart from './pages/cart.jsx'
-
+import Order from './pages/order.jsx'
 const router=createBrowserRouter(
   [
     {
@@ -29,6 +29,10 @@ const router=createBrowserRouter(
     {
       path:'/cart',
       element:<Cart/>
+    },
+    {
+      path:'/order',
+      element:<Order/>
     }
   ]
 )

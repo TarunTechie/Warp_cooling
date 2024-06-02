@@ -33,6 +33,10 @@ function LoginScreen() {
             sessionStorage.setItem("userid",result.data.id)
             sessionStorage.setItem("name",result.data.name)
           }
+          else
+          {
+            setErrors("Wrong Credentails!!")
+          }
     }
     catch(error)
     {
@@ -73,7 +77,7 @@ function LoginScreen() {
         </button>
 
         {submitted && errors &&(
-          <span className="error-message">{errors}</span>
+          <span className="error-message text-red-600">{errors}</span>
         )}
       </form>
       </div>

@@ -2,26 +2,48 @@ import { useEffect, useState } from "react"
 import Top from "../components/top"
 import CartCard from "../components/cartCard"
 import api from "../components/api"
-let list=[]
+import { useNavigate } from "react-router-dom"
 export default function Cart()
 {
+    const[list,setList]=useState([])
+    const nav=useNavigate()
     function getitems()
     {
-        list=[]
+        let temp=[]
         for(let i=1;i<=localStorage.getItem('number');i++)
             {
                 console.log(i)
-                list.push(JSON.parse(localStorage.getItem(i)))
+                temp.push(JSON.parse(localStorage.getItem(i)))
             }
-            list.map(item=>console.log(item.image))
+            setList(temp)
+            console.log(list)
     }
     useEffect(getitems,[])
     async function checkout()
     {
         const date=new Date()
-        console.log(date.getDate().toString()+'-'+(date.getMonth()+1).toString()+'-'+date.getFullYear().toString())
-        console.log(list)
-        const response=api.post('/checkout',list)
+        const orderdate=date.getDate().toString()+'-'+(date.getMonth()+1).toString()+'-'+date.getFullYear().toString()
+        const number=Math.floor(Math.random()*(100-10)+10)+orderdate.replace('-','')
+        const price=1000*localStorage.getItem('number')
+        const orderdetails={
+            'item':list,
+            'orderno':number,
+            'price':price,
+            'date':orderdate,
+            'status':"Order Placed",
+            'id':sessionStorage.getItem('userid')
+        }
+        console.log(orderdetails)
+        try{
+            const response=await api.post('/checkout',orderdetails)
+            console.log(response.data)
+            if(response.data=='placed')
+            nav('/order')
+        }
+        catch(error)
+        {
+            console.log(error)
+        }
     }
     return(
         <div>
@@ -32,13 +54,11 @@ export default function Cart()
             </div>
             <div className="mt-10 grid justify-center">
                 {
-                    list.length===0?(<p className="text-4xl p-10 text-red-600">NO ITEMS</p>):
-                    (list.map((item,index)=>(
+                    list.map((item,index)=>(
                         <CartCard
                         image={item.image}
                         heading={item.heading}
-                        />
-                    )))
+                        />))
                 }
                 </div>
                 <button className="flex bg-blue-800 text-white px-4 py-2 rounded-xl items-center font-extrabold border-2 border-blue-950 mx-auto" onClick={checkout}>

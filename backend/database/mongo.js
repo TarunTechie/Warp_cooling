@@ -16,14 +16,10 @@ async function login(response)
                         "name":result.name
                     })
                 }
-            else
-            {
-                return({"state":"Wrong"})
-            }
         }
         else
         {
-            return("Wrong Credentials")
+            return({"state":'wrong'})
         }
     } 
     catch (error) {
@@ -58,7 +54,29 @@ async function checkout(response)
 {
     try
     {
-        
+        const result=await user.findOneAndUpdate({'_id':response.id},{
+            orderno:response.orderno,
+            $push:{item:response.item},
+            price:response.price,
+            date:response.date,
+            status:response.status
+        })
+        return('placed')
+    }
+    catch(error)
+    {
+        console.log(error)
+        return(error)
+    }
+}
+
+async function getOrder(response)
+{
+    try
+    {
+        const result=await user.find({'_id':response})
+        console.log(result[0])
+        return(result[0])
     }
     catch(error)
     {
@@ -66,4 +84,4 @@ async function checkout(response)
     }
 }
 
-module.exports={login,register,checkout}
+module.exports={login,register,checkout,getOrder}

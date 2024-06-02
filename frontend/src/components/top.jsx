@@ -31,7 +31,7 @@ export default function Top() {
                 <ul className="flex gap-44">
                     <Link to="/"><li className=" text-blue-950 hover:underline underline-offset-4" >Home</li></Link>
                     <Link to="/products"><li className=" text-blue-950 hover:underline underline-offset-4" >Products</li></Link>
-                    <Link to="/collections"><li className=" text-blue-950 hover:underline underline-offset-4 " >Orders</li></Link>
+                    <Link to="/order"><li className=" text-blue-950 hover:underline underline-offset-4 " >Orders</li></Link>
                 </ul>
             </div>
             {user ? (

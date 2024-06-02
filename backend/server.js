@@ -23,6 +23,15 @@ app.post('/register',async(req,res)=>{
 
 app.post('/checkout',async(req,res)=>{
     console.log("GOT ORDER")
-    console.log(req.body)
+    const response=await user.checkout(req.body)
+    res.send(response)
 })
+
+app.get('/getOrder',async(req,res)=>{
+    console.log(req.query.id)
+    const response=await user.getOrder(req.query.id)
+    res.send(response)
+})
+
+
 app.listen(5000,()=>{console.log("Server running")})
