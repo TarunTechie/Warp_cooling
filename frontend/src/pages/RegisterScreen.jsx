@@ -3,6 +3,7 @@ import {useNavigate,Link} from 'react-router-dom'
 import api from '../components/api';
 
 function RegisterScreen() {
+  const nav = useNavigate()
   const [spa,setsap]=useState(10)
   const [register,setRegister]=useState("")
   const [values, setValues] = useState({
@@ -15,12 +16,33 @@ function RegisterScreen() {
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
   const [errors, setErrors] = useState({});
-  const nav = useNavigate()
-
+  async function setData()
+  {
+    try{
+      const result=await api.post('/login',values)
+      console.log(result.data.state)
+      if(result.data.state=='logged in')
+        {
+          nav('/')
+          localStorage.setItem('number',0)
+          sessionStorage.setItem("userid",result.data.id)
+          sessionStorage.setItem("name",result.data.name)
+        }
+        else
+        {
+          setErrors("Wrong Credentails!!")
+        }
+  }
+  catch(error)
+  {
+    console.log(error)
+  }
+  }
   useEffect(()=>{
     if(register)
     {
-      
+      setData()
+      nav('/')
     }
   },[register])
   const handleInputChange = (event) => {

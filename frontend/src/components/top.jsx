@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Top() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [login, setLogin] = useState(false);
-
+    const[user,setUser]=useState()
+    const[name,setName]=useState()
     const handleMenuOpen = () => {
         setMenuOpen(true);
     };
@@ -14,13 +15,15 @@ export default function Top() {
     };
 
     const handleLogout = () => {
-        setLogin(true);
         sessionStorage.clear()
         localStorage.clear()
+        window.location.reload()
     };
 
-    const user = sessionStorage.getItem('userid');
-    const name = sessionStorage.getItem('name');
+    useEffect(()=>{
+        setUser(sessionStorage.getItem('userid'))
+        setName(sessionStorage.getItem('name'))
+    },[])
 
     return (
         <header className="flex bg-blue-200 px-2 justify-between h-24 items-center fixed z-10 w-full top-0">

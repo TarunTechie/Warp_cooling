@@ -18,6 +18,7 @@ app.post('/login',async(req,res)=>{
 app.post('/register',async(req,res)=>{
     console.log("Register Request Recived")
     const response=await user.register(req.body)
+    console.log(response)
     res.send(response)
 })
 
@@ -33,5 +34,10 @@ app.get('/getOrder',async(req,res)=>{
     res.send(response)
 })
 
+app.post('/getAdmin',async(req,res)=>{
+    console.log("Requested from Admin")
+    const response=await user.getAdmin(req.body)
+    res.send(response)
+})
 
 app.listen(5000,()=>{console.log("Server running")})

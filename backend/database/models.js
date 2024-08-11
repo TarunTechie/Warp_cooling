@@ -10,7 +10,7 @@ const userSchema=new mongo.Schema({
     orderno:String,
     item:[item],
     price:Number,
-    date:String,
+    date:Date,
     status:String
 })
 

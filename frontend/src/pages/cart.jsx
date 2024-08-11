@@ -22,8 +22,8 @@ export default function Cart()
     async function checkout()
     {
         const date=new Date()
-        const orderdate=date.getDate().toString()+'-'+(date.getMonth()+1).toString()+'-'+date.getFullYear().toString()
-        const number=Math.floor(Math.random()*(100-10)+10)+orderdate.replace('-','')
+        const orderdate=date.toISOString()
+        const number=Math.floor(Math.random()*(100-10)+10)+orderdate.split('T')[0]
         const price=1000*localStorage.getItem('number')
         const orderdetails={
             'item':list,

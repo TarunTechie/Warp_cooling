@@ -5,7 +5,7 @@ import api from "../components/api";
 import CartCard from "../components/cartCard";
 export default function Order() {
     const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true); // Add a loading state
+    const [loading, setLoading] = useState(true); 
 
     function getData() {
         console.log("Fetching order data...");
@@ -13,11 +13,11 @@ export default function Order() {
             .then(response => {
                 console.log(response.data);
                 setData(response.data);
-                setLoading(false); // Set loading to false after data is fetched
+                setLoading(false); 
             })
             .catch(error => {
                 console.log(error);
-                setLoading(false); // Set loading to false even if there's an error
+                setLoading(false); 
             });
     }
 
@@ -26,11 +26,30 @@ export default function Order() {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>; // Show a loading message or spinner while fetching data
+        return <div
+          class="mx-auto w-[500px] bg-gray-950 rounded-xl overflow-hidden drop-shadow-xl align-center items-center my-auto"
+        >
+          <div class="bg-[#333] flex items-center p-[5px] text-whitec relative">
+            <div class="flex absolute left-3">
+              <span class="h-3.5 w-3.5 bg-[#ff605c] rounded-xl mr-2"></span>
+              <span class="h-3.5 w-3.5 bg-[#ffbd44] rounded-xl mr-2"></span>
+              <span class="h-3.5 w-3.5 bg-[#00ca4e] rounded-xl"></span>
+            </div>
+            <div class="flex-1 text-center text-white">status</div>
+          </div>
+          <div class="p-2.5 text-[#0f0]">
+            <div>
+              <span class="mr-2">Loading</span>
+              <span class="animate-[ping_1.5s_0.5s_ease-in-out_infinite]">.</span>
+              <span class="animate-[ping_1.5s_0.7s_ease-in-out_infinite]">.</span>
+              <span class="animate-[ping_1.5s_0.9s_ease-in-out_infinite]">.</span>
+            </div>
+          </div>
+        </div>
     }
 
     if (!data) {
-        return <div>No data available</div>; // Show a message if no data is returned
+        return <div>No data available</div>; 
     }
 
     return (

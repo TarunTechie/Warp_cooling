@@ -37,7 +37,7 @@ async function register(response)
                 email:response.email,
                 password:await bcrypt.hash(response.password,5)
             })
-            return("Registered")
+            return(true)
         }
         catch(error)
         {
@@ -84,4 +84,15 @@ async function getOrder(response)
     }
 }
 
-module.exports={login,register,checkout,getOrder}
+async function getAdmin(response)
+{
+    try {
+        console.log(response)
+        const result=await user.find({date:{$gte:new Date(response.start),$lte:new Date(response.end)}})
+        console.log(result)
+        return result
+    } catch (error) {
+        console.log(error)
+    }
+}
+module.exports={login,register,checkout,getOrder,getAdmin}
