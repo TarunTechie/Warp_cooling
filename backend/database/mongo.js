@@ -95,4 +95,15 @@ async function getAdmin(response)
         console.log(error)
     }
 }
-module.exports={login,register,checkout,getOrder,getAdmin}
+
+async function getProfile(response)
+{
+    try {
+        const result=await user.find({_id:response})
+        return result
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+module.exports={login,register,checkout,getOrder,getAdmin,getProfile}

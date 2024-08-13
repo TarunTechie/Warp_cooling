@@ -4,6 +4,7 @@ import App from './App.jsx'
 import LoginScreen from './pages/LoginScreen.jsx'
 import RegisterScreen from './pages/RegisterScreen.jsx'
 import Product_page from './pages/product_page.jsx'
+import Profile from './pages/profile.jsx'
 import Admin from './pages/admin.jsx'
 import './index.css'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
@@ -36,8 +37,12 @@ const router=createBrowserRouter(
       element:<Order/>
     },
     {
-      path:"/admin",
+      path:'/admin',
       element:<Admin/>
+    },
+    {
+      path:'/profile',
+      element:<Profile/>
     }
   ]
 )

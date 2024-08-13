@@ -40,4 +40,9 @@ app.post('/getAdmin',async(req,res)=>{
     res.send(response)
 })
 
+app.get('/profile',async(req,res)=>{
+    const response=await user.getProfile(req.query.id)
+    res.send(response)
+})
+
 app.listen(5000,()=>{console.log("Server running")})
